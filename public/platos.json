@@ -1,0 +1,196 @@
+[{
+		"id": 1,
+		"nombre": "Pizza Especial",
+		"descripcion":"Una explosión de sabores auténticos con ingredientes frescos y salsa casera sobre una base de masa artesanal.",
+		"precio": "120",
+		"rubro": "Comidas",
+		"imagenPath": "pizza-especial.jpg",
+		"ingredientes": [{
+			"id": 1,
+			"nombre": "harina",
+			"cantidad": 200.0,
+			"unidadMedida": "gramos"
+		}, {
+			"id": 2,
+			"nombre": "huevos",
+			"cantidad": 2.0,
+			"unidadMedida": "unidades"
+		}, {
+			"id": 3,
+			"nombre": "queso",
+			"cantidad": 300.0,
+			"unidadMedida": "gramos"
+		}, {
+			"id": 4,
+			"nombre": "salsa tomate",
+			"cantidad": 300.0,
+			"unidadMedida": "mililitros"
+		}, {
+			"id": 5,
+			"nombre": "jamon cocido",
+			"cantidad": 150.0,
+			"unidadMedida": "gramos"
+		}, {
+			"id": 9,
+			"nombre": "agua",
+			"cantidad": 500.0,
+			"unidadMedida": "mililitro"
+		}]
+	},
+	{
+		"id": 2,
+		"nombre": "Empanadas Docena",
+		"descripcion":"Delicias argentinas, rellenas de sabores auténticos como carne, pollo o verduras, envueltas en masa crujiente y horneadas a la perfección.",
+		"precio": "140",
+		"rubro": "Comidas",
+		"imagenPath": "empanadas.jpg",
+		"ingredientes": [{
+			"id": 1,
+			"nombre": "harina",
+			"cantidad": 3.0,
+			"unidadMedida": "gramos"
+		}, {
+			"id": 2,
+			"nombre": "huevos",
+			"cantidad": 2.0,
+			"unidadMedida": "unidades"
+		}, {
+			"id": 6,
+			"nombre": "carne molida",
+			"cantidad": 300.0,
+			"unidadMedida": "gramos"
+		}, {
+			"id": 9,
+			"nombre": "agua",
+			"cantidad": 500.0,
+			"unidadMedida": "mililitro"
+		}, {
+			"id": 10,
+			"nombre": "cebolla",
+			"cantidad": 2.0,
+			"unidadMedida": "unidades"
+		}]
+	},
+	{
+		"id": 3,
+		"nombre": "Lomo Completo",
+		"descripcion":"Tentadoras combinaciones de carne tierna, queso derretido y vegetales frescos, todo servido en pan crujiente.",
+		"precio": "150",
+		"rubro": "Comidas",
+		"imagenPath": "lomo-completo.jpg",
+		"ingredientes": [{
+			"id": 1,
+			"nombre": "harina",
+			"cantidad": 200.0,
+			"unidadMedida": "gramos"
+		}, {
+			"id": 2,
+			"nombre": "huevos",
+			"cantidad": 1.0,
+			"unidadMedida": "unidades"
+		}, {
+			"id": 3,
+			"nombre": "queso",
+			"cantidad": 300.0,
+			"unidadMedida": "gramos"
+		}, {
+			"id": 4,
+			"nombre": "salsa tomate",
+			"cantidad": 444.0,
+			"unidadMedida": "mililitros"
+		}, {
+			"id": 5,
+			"nombre": "jamon cocido",
+			"cantidad": 555.0,
+			"unidadMedida": "gramos"
+		}, {
+			"id": 6,
+			"nombre": "carne molida",
+			"cantidad": 666.0,
+			"unidadMedida": "gramos"
+		}, {
+			"id": 7,
+			"nombre": "tomate",
+			"cantidad": 777.0,
+			"unidadMedida": "unidades"
+		}, {
+			"id": 8,
+			"nombre": "lechuga",
+			"cantidad": 888.0,
+			"unidadMedida": "unidad"
+		}, {
+			"id": 9,
+			"nombre": "agua",
+			"cantidad": 500.0,
+			"unidadMedida": "mililitro"
+		}]
+	},
+	{
+		"id": 4,
+		"nombre": "Mini Hamburguesa",
+		"descripcion":"Jugosas y sabrosas, elaboradas con carne de calidad y condimentos únicos, ofreciendo una experiencia gourmet incomparable",
+		"precio": "100",
+		"rubro": "Comidas",
+		"imagenPath": "hamburguesa.jpg",
+		"ingredientes": [{
+			"id": 1,
+			"nombre": "harina",
+			"cantidad": 3.0,
+			"unidadMedida": "gramos"
+		}, {
+			"id": 2,
+			"nombre": "huevos",
+			"cantidad": 2.0,
+			"unidadMedida": "unidades"
+		}, {
+			"id": 6,
+			"nombre": "carne molida",
+			"cantidad": 500.0,
+			"unidadMedida": "gramos"
+		}, {
+			"id": 7,
+			"nombre": "tomate",
+			"cantidad": 250.0,
+			"unidadMedida": "unidades"
+		}, {
+			"id": 8,
+			"nombre": "lechuga",
+			"cantidad": 300.0,
+			"unidadMedida": "unidad"
+		}, {
+			"id": 9,
+			"nombre": "agua",
+			"cantidad": 500.0,
+			"unidadMedida": "mililitro"
+		}]
+	},
+	{
+		"id": 5,
+		"nombre": "Cerveza Deibeer",
+		"descripcion":"Exquisitas creaciones locales, elaboradas con pasión y dedicación, ofreciendo una variedad de estilos y sabores únicos.",
+		"precio": "140",
+		"rubro": "Bebidas",
+		"imagenPath": "cerveza.jpg",
+		"ingredientes": [{
+			"id": 1,
+			"nombre": "harina",
+			"cantidad": 2.0,
+			"unidadMedida": "gramos"
+		}, {
+			"id": 9,
+			"nombre": "agua",
+			"cantidad": 900.0,
+			"unidadMedida": "mililitro"
+		}, {
+			"id": 11,
+			"nombre": "cebada",
+			"cantidad": 300.0,
+			"unidadMedida": "gramos"
+		}, {
+			"id": 12,
+			"nombre": "lupulo",
+			"cantidad": 300.0,
+			"unidadMedida": "gramos"
+		}]
+	}
+]

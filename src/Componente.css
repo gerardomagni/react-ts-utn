@@ -1,0 +1,21 @@
+.tarjeta{
+    width: 18rem;
+    background-color: aliceblue;
+}
+
+.img-altura{
+    min-height: 200px;
+    max-height: 200px;
+}
+
+.altura-cuerpo{
+    min-height: 300px;
+    max-height: 300px;
+}
+
+.buttonSinStock{
+    background-color: gainsboro;
+}
+.buttonSinStock:hover{
+    background-color: red;
+}
