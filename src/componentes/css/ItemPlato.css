@@ -1,17 +1,18 @@
 .tarjeta{
     width: 18rem;
     background-color: aliceblue;
-    height: 500px;
+    padding: 0px;
+    height: 450px;
 }
 
 .img-altura{
     min-height: 200px;
-    max-height: 250px;
+    max-height: 200px;
 }
 
 .altura-cuerpo{
-    min-height: 400px;
-    max-height: 400px;
+    min-height: 300px;
+    max-height: 300px;
 }
 
 .buttonSinStock{
@@ -19,4 +20,8 @@
 }
 .buttonSinStock:hover{
     background-color: red;
+}
+
+.espacio{
+    padding: 5px;
 }

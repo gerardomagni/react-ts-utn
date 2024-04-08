@@ -1,5 +1,34 @@
 import Plato from "../entidades/Plato";
 
+export async function getPlatosJSONFetch(){
+	let urlServer = 'http://localhost:82/utn/api_platos/get_platos.php';
+	let response = await fetch(urlServer, {
+		method: 'GET',
+        headers: {
+			'Content-type': 'application/json',
+			'Access-Control-Allow-Origin':'*'
+		},
+        mode: 'cors'
+	});
+	console.log(response);
+	return await response.json();
+}
+
+export async function getPlatoXIdFecth(id:number){
+	let urlServer = 'http://localhost:82/utn/api_platos/get_platos.php?id='+id;
+    console.log(urlServer);
+	let response = await fetch(urlServer, {
+		method: 'GET',
+        headers: {
+			'Content-type': 'application/json',
+			'Access-Control-Allow-Origin':'*'
+		},
+        mode: 'cors'
+	});
+	return await response.json() as Plato;
+    
+}
+
 export function getPlatosJSON(){
 
     let datos:Plato[] = [{
