@@ -9,7 +9,7 @@ function DetallePlato() {
     const {idplato} = useParams();
     const [plato, setPlato] = useState<Plato>();
     const getPlatoResto = async () => {
-        let platoSelect:Plato = await getPlatoXIdFecth(Number(idplato));
+        const platoSelect:Plato = await getPlatoXIdFecth(Number(idplato));
         setPlato(platoSelect);
     }
     useEffect(() => {

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import Plato from '../entidades/Plato';
 import ItemPlato from './ItemPlato';
-import { getPlatosJSON, getPlatosJSONFetch } from '../servicios/FuncionesApi';
+import { getPlatosJSONFetch } from '../servicios/FuncionesApi';
 import MenuOpciones from './MenuOpciones';
 
 
@@ -9,7 +9,7 @@ function Menu() {
     const [platos, setPlatos] = useState<Plato[]>([]);
     
     const getPlatosResto =  async () => {
-      let datos:Plato[] = await getPlatosJSONFetch();
+      const datos:Plato[] = await getPlatosJSONFetch();
       setPlatos(datos);
     }
 

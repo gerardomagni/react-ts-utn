@@ -1,8 +1,8 @@
 import Plato from "../entidades/Plato";
 
 export async function getPlatosJSONFetch(){
-	let urlServer = 'http://localhost:82/utn/api_platos/get_platos.php';
-	let response = await fetch(urlServer, {
+	const urlServer = 'http://localhost:82/utn/api_platos/get_platos.php';
+	const response = await fetch(urlServer, {
 		method: 'GET',
         headers: {
 			'Content-type': 'application/json',
@@ -15,9 +15,9 @@ export async function getPlatosJSONFetch(){
 }
 
 export async function getPlatoXIdFecth(id:number){
-	let urlServer = 'http://localhost:82/utn/api_platos/get_platos.php?id='+id;
+	const urlServer = 'http://localhost:82/utn/api_platos/get_platos.php?id='+id;
     console.log(urlServer);
-	let response = await fetch(urlServer, {
+	const response = await fetch(urlServer, {
 		method: 'GET',
         headers: {
 			'Content-type': 'application/json',
@@ -31,7 +31,7 @@ export async function getPlatoXIdFecth(id:number){
 
 export function getPlatosJSON(){
 
-    let datos:Plato[] = [{
+    const datos:Plato[] = [{
 	"id": 1,
 	"nombre": "Pizza Especial",
 	"descripcion":"Una explosión de sabores auténticos con ingredientes frescos y salsa casera sobre una base de masa artesanal.",
