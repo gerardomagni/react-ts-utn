@@ -1,4 +1,5 @@
 import Ingrediente from "./Ingrediente";
+import PlatoIngrediente from "./PlatoIngrediente";
 
 export default class Plato{
 
@@ -9,6 +10,7 @@ export default class Plato{
         precio:number = 0;
         rubro:string = "";
         ingredientes?:Ingrediente[] = [];
+        ingredientesPlato?:PlatoIngrediente[] = [];
         urlImagenPath?:string = "";
         strPrecio?:string = "";
     

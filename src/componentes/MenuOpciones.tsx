@@ -14,6 +14,9 @@ function MenuOpciones() {
                 <li className="nav-item">
                     <a className="nav-link" href="/componentes">Componentes</a>
                 </li>
+                <li className="nav-item">
+                    <a className="nav-link" href="/grilla">Grilla</a>
+                </li>
                 </ul>
             </div>
         </div>
