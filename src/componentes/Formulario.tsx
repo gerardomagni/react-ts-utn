@@ -99,14 +99,14 @@ function Formulario() {
 
     const deleteIngrediente = async (platoIngrediente:PlatoIngrediente) => {
         
-        const index:number | undefined = await plato.ingredientesPlato?.indexOf(platoIngrediente, 0);
-        if (index !== undefined && index > -1) {
-            plato.ingredientesPlato?.splice(index, 1);
-            if(document && document.getElementById("txtCodigo")){
-                (document.getElementById("txtCodigo") as HTMLInputElement).focus();
-            }
-            setPlato(plato);
+        if(plato.ingredientesPlato){
+            let ingsPlato:PlatoIngrediente[] = await plato.ingredientesPlato.filter(ingPlato => ingPlato.ingrediente.id != platoIngrediente.ingrediente.id);
+            plato.ingredientesPlato = await ingsPlato;
         }
+        if(document && document.getElementById("txtCodigo")){
+            (document.getElementById("txtCodigo") as HTMLInputElement).focus();
+        }
+        await setPlato(plato);
         setTxtValidacion("Ingrediente Eliminado");
       }
 
@@ -200,9 +200,14 @@ function Formulario() {
             <div>
                 <p style={{ color: 'red', lineHeight : 5, padding: 5 }}>{txtValidacion}</p>
             </div>
-            <button onClick={save} type="button">
-                Guardar
-            </button>
+            <div className="col">
+                <button onClick={save} className="btn btn-success" type="button">
+                    Guardar
+                </button>
+                <a href={`/grilla`} style={{marginLeft:25}}>
+                    <button type="button" className="btn btn-warning">Volver</button>
+                </a>
+            </div>
         </div>
         </>
       )
