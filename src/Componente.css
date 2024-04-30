@@ -1,7 +1,7 @@
 .tarjeta{
     width: 18rem;
     background-color: aliceblue;
-    height: 500px;
+    height: 490px !important;
 }
 
 .img-altura{
@@ -19,4 +19,20 @@
 }
 .buttonSinStock:hover{
     background-color: red;
+}
+
+.colorFondoBlanco{
+    background-color: white;
+    border-color: green;
+    text-align: center;
+    color: black;
+}
+
+.iconoMasMenos{
+    cursor: pointer;
+    font-size: 40px;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-right: 10px;
+    color:lightseagreen
 }

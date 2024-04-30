@@ -100,13 +100,13 @@ function Formulario() {
     const deleteIngrediente = async (platoIngrediente:PlatoIngrediente) => {
         
         if(plato.ingredientesPlato){
-            let ingsPlato:PlatoIngrediente[] = await plato.ingredientesPlato.filter(ingPlato => ingPlato.ingrediente.id != platoIngrediente.ingrediente.id);
-            plato.ingredientesPlato = await ingsPlato;
+            let ingsPlato:PlatoIngrediente[] = plato.ingredientesPlato.filter(ingPlato => ingPlato.ingrediente.id != platoIngrediente.ingrediente.id);
+            plato.ingredientesPlato = ingsPlato;
         }
         if(document && document.getElementById("txtCodigo")){
             (document.getElementById("txtCodigo") as HTMLInputElement).focus();
         }
-        await setPlato(plato);
+        setPlato(prevState => plato);
         setTxtValidacion("Ingrediente Eliminado");
       }
 

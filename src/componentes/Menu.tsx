@@ -3,6 +3,8 @@ import Plato from '../entidades/Plato';
 import ItemPlato from './ItemPlato';
 import { getPlatosJSONFetch } from '../servicios/FuncionesApi';
 import MenuOpciones from './MenuOpciones';
+import { CartProvider } from '../context/CarritoContext';
+import { Cart } from './Carrito';
 
 
 function Menu() {   
@@ -17,14 +19,26 @@ function Menu() {
       getPlatosResto();
     }, []);
 
+
     return (
         <>
+        <CartProvider>
         <MenuOpciones></MenuOpciones>
         <div className="row">
-         {platos.map((plato:Plato) => 
-                <ItemPlato key={plato.id} id={plato.id} tituloPlato={plato.nombre} precio={plato.precio} rubro={plato.rubro} imagenPlato={plato.imagenPath} descripcion={plato.descripcion} initialHayStock={true}></ItemPlato>
-               )}
+            <div className="col-10">
+                <div className="row">
+                {platos.map((plato:Plato) => {
+                return(
+                        <ItemPlato platoObject={plato} key={plato.id} id={plato.id} tituloPlato={plato.nombre} precio={plato.precio} rubro={plato.rubro} imagenPlato={plato.imagenPath} descripcion={plato.descripcion} initialHayStock={true}></ItemPlato>
+                    )})}
+                </div>    
+            </div>
+            <div className="col">
+                <b>Carrito Compras</b>
+                <Cart></Cart>
+            </div>
         </div>
+        </CartProvider>
         </>
       )
 }

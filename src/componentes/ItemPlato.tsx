@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import '../componentes/css/ItemPlato.css'
+import { useCart } from '../hooks/useCarrito.tsx'
+import Plato from '../entidades/Plato.ts';
 
 type PlatoParams = {
     id:number;
@@ -9,9 +11,12 @@ type PlatoParams = {
     precio: number;
     rubro:string;
     initialHayStock:boolean;
+    isProductInCart?:boolean;
+    platoObject:Plato;
 }
 
 function ItemPlato(args : PlatoParams) {
+    
     const [contador, incrementarCantidad] = useState(0);
     const text = args.initialHayStock ? 'Comprar' : 'Sin Stock';
     const buttonClassName = args.initialHayStock
@@ -20,9 +25,19 @@ function ItemPlato(args : PlatoParams) {
     const handleClick = () => {
         args.initialHayStock ? incrementarCantidad((contador) => contador + 1) : 0;
       }
-  return (
+
+    const { addCarrito, removeCarrito, cart, removeItemCarrito } = useCart()
+
+    const verificaPlatoEnCarrito = (product:Plato) => {
+        return cart.some(item => item.id === product.id)
+    }
+
+    const isPlatoInCarrito = verificaPlatoEnCarrito(args.platoObject)
+
+    return (
     <>
-    <div className="col-sm-3 mb-3 mb-sm-0 espacio">
+    
+    <div key={args.id} className="col-sm-4 mb-4 mb-sm-0 espacio">
         <div className="card tarjeta">
         <div>
           <img src={`./images/${args.imagenPlato}`} className="card-img-top img-altura" alt={args.imagenPlato}></img>
@@ -33,8 +48,28 @@ function ItemPlato(args : PlatoParams) {
             <a href={`detalle/${args.id}`}>
                 <button type="button" className="btn btn-warning">Detalle</button>
             </a>
-            <a href="#" onClick={handleClick} className={buttonClassName}>{text}</a>
-            <p>{contador}</p>
+            <hr></hr>
+            <p>
+            <a className='iconoMasMenos' onClick={() => removeItemCarrito(args.platoObject)}>
+            -
+            </a>
+            <button className='colorFondoBlanco'
+                  onClick={() => {
+                    isPlatoInCarrito
+                      ? removeCarrito(args.platoObject)
+                      : addCarrito(args.platoObject)
+                  }}
+                >
+                  {
+                    isPlatoInCarrito
+                      ? <img src={`./img/deleteCart.png`} />
+                      : <img src={`./img/addCart.png`} />
+                  }
+            </button>
+            <a className='iconoMasMenos' onClick={() => addCarrito(args.platoObject)}>
+             +
+            </a> 
+            </p>
         </div>
         </div>
     </div>
