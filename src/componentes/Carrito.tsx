@@ -1,5 +1,5 @@
 import Plato from '../entidades/Plato.ts'
-import { useCart } from '../hooks/useCarrito.tsx'
+import { useCarrito } from '../hooks/useCarrito.tsx'
 
 
 
@@ -23,9 +23,9 @@ function CartItem (item:Plato) {
   )
 }
 
-export function Cart () {
+export function Carrito () {
   
-  const { cart, removeCarrito, addCarrito, limpiarCarrito } = useCart()
+  const { cart, removeCarrito, addCarrito, limpiarCarrito } = useCarrito()
   
   const mostrarCarritoJSON = () => {
     console.log(cart)
@@ -40,8 +40,8 @@ export function Cart () {
       
       <aside className='cart'>
         <ul>
-          {cart.map((plato:Plato) => 
-            <CartItem id={plato.id} nombre={plato.nombre} precio={plato.precio} key={plato.id}
+          {cart.map((plato:Plato, index) => 
+            <CartItem id={plato.id} nombre={plato.nombre} precio={plato.precio} key={index}
             imagenPath={plato.imagenPath} descripcion={plato.descripcion} rubro={plato.rubro} cantidad={plato.cantidad} addCarrito={() => addCarrito(plato)}/>
           )}
         </ul>

@@ -32,8 +32,8 @@ function DetallePlato() {
             <p className="card-text">{plato?.descripcion}</p>
             <p className='align-izquierda'>
                 Ingredientes:<br></br>
-                {plato?.ingredientes?.map((ing:Ingrediente) => 
-                    <li key={ing.id}>{ing.nombre} {ing.cantidad} {ing.unidadMedida}</li>
+                {plato?.ingredientes?.map((ing:Ingrediente, index) => 
+                    <li key={'k'+index}>{ing.nombre} {ing.cantidad} {ing.unidadMedida}</li>
                 )}
 
             </p>

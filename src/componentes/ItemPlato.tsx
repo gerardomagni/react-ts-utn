@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import '../componentes/css/ItemPlato.css'
-import { useCart } from '../hooks/useCarrito.tsx'
+import { useCarrito } from '../hooks/useCarrito.tsx'
 import Plato from '../entidades/Plato.ts';
 
 type PlatoParams = {
@@ -25,8 +25,8 @@ function ItemPlato(args : PlatoParams) {
     const handleClick = () => {
         args.initialHayStock ? incrementarCantidad((contador) => contador + 1) : 0;
       }
-
-    const { addCarrito, removeCarrito, cart, removeItemCarrito } = useCart()
+    //
+    const { addCarrito, removeCarrito, cart, removeItemCarrito } = useCarrito()
 
     const verificaPlatoEnCarrito = (product:Plato) => {
         return cart.some(item => item.id === product.id)
@@ -62,8 +62,8 @@ function ItemPlato(args : PlatoParams) {
                 >
                   {
                     isPlatoInCarrito
-                      ? <img src={`./img/deleteCart.png`} />
-                      : <img src={`./img/addCart.png`} />
+                      ? <img src={`./img/deleteCart.png`} title='Quitar' />
+                      : <img src={`./img/addCart.png`}  title='Comprar' />
                   }
             </button>
             <a className='iconoMasMenos' onClick={() => addCarrito(args.platoObject)}>

@@ -20,24 +20,29 @@ export const CartContext = createContext<CartContextType>({
 });
 
 
-//crear provider
-export function CartProvider({ children }: { children: ReactNode }){
+//crear provider, encargado de proveer acceso al contexto
+export function CarritoContextProvider({ children }: { children: ReactNode }){
     
     const[cart, setCart] = useState<Plato[]>([]);
 
     const addCarrito = async (product: Plato) => {
-        //2 formas de buscar
-        const objetoBuscado = cart.find((objeto:Plato) => objeto.id === product.id);
-        const platoIndice = cart.findIndex((objeto:Plato) => objeto.id === product.id)
-        //si el producto ya esta en el carrito
-        if (objetoBuscado && platoIndice > 0) {
+        let existe:boolean = false
+        cart.forEach(async (element:Plato) => {
+            if(element.id === product.id){
+                existe = true
+                return existe
+            }
+        });
+        
+        if (existe) {
             console.log("YA EXISTE");
-            objetoBuscado.cantidad += 1
-            const cartClonado = structuredClone(cart.filter(item => item.id !== product.id))
-            cartClonado.push(objetoBuscado)
+            product.cantidad += 1
+            const cartClonado = await structuredClone(cart.filter(item => item.id !== product.id))
+            await cartClonado.push(product)
             setCart(cartClonado)
         } 
         else { // si el producto no esta en el carrito
+            console.log("NO EXISTE");
             await setCart(prevCart => [...prevCart, product])
         }   
     };
@@ -47,22 +52,26 @@ export function CartProvider({ children }: { children: ReactNode }){
     };
 
     const removeItemCarrito = async (product: Plato) => {
-        const objetoBuscado = cart.find((objeto:Plato) => objeto.id === product.id);
-        const platoIndice = cart.findIndex((objeto:Plato) => objeto.id === product.id)
+        //const objetoBuscado = cart.find((objeto:Plato) => objeto.id === product.id);
+        //const platoIndice = cart.findIndex((objeto:Plato) => objeto.id === product.id)
         //si el producto ya esta en el carrito
-        if (objetoBuscado && platoIndice > 0) {
-            console.log("YA EXISTE");
-            if(objetoBuscado.cantidad > 1){
-                objetoBuscado.cantidad -= 1
-                const cartClonado = structuredClone(cart.filter(item => item.id !== product.id))
-                cartClonado.push(objetoBuscado)
+        let existe:boolean = false
+        cart.forEach(async (element:Plato) => {
+            if(element.id === product.id){
+                existe = true
+            } 
+        });
+
+        if (existe) {
+            console.log("EXISTE");
+            if(product.cantidad > 1){
+                product.cantidad -= 1
+                const cartClonado = await structuredClone(cart.filter(item => item.id !== product.id))
+                await cartClonado.push(product)
                 setCart(cartClonado)
             }else{
                 await setCart(prevCart => prevCart.filter(item => item.id !== product.id))
             }
-        } 
-        else { // si el producto no esta en el carrito
-            await setCart(prevCart => prevCart.filter(item => item.id !== product.id))
         }   
     };
 

@@ -49,8 +49,8 @@ function GrillaPlatos() {
                 <b>Eliminar</b>
                 </div>
             </div>
-          {platos.map((plato:Plato) => 
-            <div className="row" key={plato.id}>
+          {platos.map((plato:Plato, index) => 
+            <div className="row" key={index}>
                 <div className="col">
                 {plato.id}
                 </div>

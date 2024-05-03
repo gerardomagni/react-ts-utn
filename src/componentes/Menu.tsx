@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useId } from 'react'
 import Plato from '../entidades/Plato';
 import ItemPlato from './ItemPlato';
 import { getPlatosJSONFetch } from '../servicios/FuncionesApi';
 import MenuOpciones from './MenuOpciones';
-import { CartProvider } from '../context/CarritoContext';
-import { Cart } from './Carrito';
+import { CarritoContextProvider } from '../context/CarritoContext';
+import { Carrito } from './Carrito';
 
 
 function Menu() {   
@@ -22,23 +22,23 @@ function Menu() {
 
     return (
         <>
-        <CartProvider>
+        <CarritoContextProvider>
         <MenuOpciones></MenuOpciones>
         <div className="row">
             <div className="col-10">
                 <div className="row">
-                {platos.map((plato:Plato) => {
+                {platos.map((plato:Plato, index) => {
                 return(
-                        <ItemPlato platoObject={plato} key={plato.id} id={plato.id} tituloPlato={plato.nombre} precio={plato.precio} rubro={plato.rubro} imagenPlato={plato.imagenPath} descripcion={plato.descripcion} initialHayStock={true}></ItemPlato>
+                        <ItemPlato platoObject={plato} key={index} id={plato.id} tituloPlato={plato.nombre} precio={plato.precio} rubro={plato.rubro} imagenPlato={plato.imagenPath} descripcion={plato.descripcion} initialHayStock={true}></ItemPlato>
                     )})}
                 </div>    
             </div>
             <div className="col">
                 <b>Carrito Compras</b>
-                <Cart></Cart>
+                <Carrito></Carrito>
             </div>
         </div>
-        </CartProvider>
+        </CarritoContextProvider>
         </>
       )
 }
