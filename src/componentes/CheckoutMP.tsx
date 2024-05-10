@@ -29,7 +29,7 @@ function CheckoutMP ({montoCarrito = 0}) {
         <div>
             <button onClick={getPreferenceMP} className='btMercadoPago'>COMPRAR con <br></br> Mercado Pago</button>
             <div className={idPreference ? 'divVisible' : 'divInvisible'}>
-            <Wallet initialization={{ preferenceId: idPreference, redirectMode:"self" }} customization={{  texts:{ valueProp: 'smart_option'}}} />
+            <Wallet initialization={{ preferenceId: idPreference, redirectMode:"blank" }} customization={{  texts:{ valueProp: 'smart_option'}}} />
             </div>
         </div>
     );
