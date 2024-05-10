@@ -1,7 +1,6 @@
 import Plato from '../entidades/Plato.ts'
 import { useCarrito } from '../hooks/useCarrito.tsx'
-
-
+import CheckoutMP from './CheckoutMP.tsx'
 
 function CartItem (item:Plato) {
   return (
@@ -25,19 +24,15 @@ function CartItem (item:Plato) {
 
 export function Carrito () {
   
-  const { cart, removeCarrito, addCarrito, limpiarCarrito } = useCarrito()
+  const { cart, removeCarrito, addCarrito, limpiarCarrito, totalPedido } = useCarrito()
   
   const mostrarCarritoJSON = () => {
     console.log(cart)
   }
 
+  
   return (
     <>
-      <label className='cart-button'>
-        <i>Items del Pedido</i>
-        <hr></hr>
-      </label>
-      
       <aside className='cart'>
         <ul>
           {cart.map((plato:Plato, index) => 
@@ -45,6 +40,9 @@ export function Carrito () {
             imagenPath={plato.imagenPath} descripcion={plato.descripcion} rubro={plato.rubro} cantidad={plato.cantidad} addCarrito={() => addCarrito(plato)}/>
           )}
         </ul>
+        <div>
+            <h3>${totalPedido}</h3>
+        </div>
 
         <button onClick={limpiarCarrito} title='Limpiar Todo'>
             <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' strokeWidth='1' stroke='currentColor' fill='none' strokeLinecap='round' strokeLinejoin='round'>
@@ -56,8 +54,15 @@ export function Carrito () {
                 <path d='M3 3l18 18' />
             </svg>
         </button>
-        <button onClick={mostrarCarritoJSON}>MOSTRAR CART JSON
+        <br></br>
+        <button onClick={mostrarCarritoJSON}>
+        MOSTRAR CART JSON
         </button>
+        <br></br>
+        <CheckoutMP montoCarrito={totalPedido} ></CheckoutMP>
+        
+        
+        
       </aside>
     </>
   )

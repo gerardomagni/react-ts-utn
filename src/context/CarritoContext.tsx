@@ -8,6 +8,7 @@ interface CartContextType {
   removeCarrito: (product: Plato) => void;
   removeItemCarrito: (product: Plato) => void;
   limpiarCarrito: () => void;
+  totalPedido?:number;
 }
 
 //crear contexto
@@ -16,7 +17,8 @@ export const CartContext = createContext<CartContextType>({
   addCarrito: () => {},
   removeCarrito: () => {},
   removeItemCarrito: () => {},
-  limpiarCarrito: () => {}
+  limpiarCarrito: () => {},
+  totalPedido: 0
 });
 
 
@@ -24,6 +26,7 @@ export const CartContext = createContext<CartContextType>({
 export function CarritoContextProvider({ children }: { children: ReactNode }){
     
     const[cart, setCart] = useState<Plato[]>([]);
+    const[totalPedido, setTotalPedido] = useState<number>(0);
 
     const addCarrito = async (product: Plato) => {
         let existe:boolean = false
@@ -45,6 +48,8 @@ export function CarritoContextProvider({ children }: { children: ReactNode }){
             console.log("NO EXISTE");
             await setCart(prevCart => [...prevCart, product])
         }   
+        calcularTotalCarrito();
+
     };
 
     const removeCarrito = async (product: Plato) => {
@@ -73,15 +78,25 @@ export function CarritoContextProvider({ children }: { children: ReactNode }){
                 await setCart(prevCart => prevCart.filter(item => item.id !== product.id))
             }
         }   
+
+        calcularTotalCarrito();
     };
 
     const limpiarCarrito = () => {
         setCart([])
     }
 
+    const calcularTotalCarrito = async () => {
+        let total:number = 0;
+        cart.forEach(async (element:Plato) => {
+            total += element.precio * element.cantidad;
+        });
+        await setTotalPedido(total);
+    }
+
 
     return (
-    <CartContext.Provider value={{ cart, addCarrito, limpiarCarrito, removeCarrito, removeItemCarrito }}>
+    <CartContext.Provider value={{ cart, addCarrito, limpiarCarrito, removeCarrito, removeItemCarrito, totalPedido }}>
       {children}
     </CartContext.Provider>
     );

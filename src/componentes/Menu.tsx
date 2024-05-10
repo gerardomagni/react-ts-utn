@@ -25,7 +25,7 @@ function Menu() {
         <CarritoContextProvider>
         <MenuOpciones></MenuOpciones>
         <div className="row">
-            <div className="col-10">
+            <div className="col-9">
                 <div className="row">
                 {platos.map((plato:Plato, index) => {
                 return(
@@ -33,8 +33,9 @@ function Menu() {
                     )})}
                 </div>    
             </div>
-            <div className="col">
+            <div className="col-3">
                 <b>Carrito Compras</b>
+                <hr></hr>
                 <Carrito></Carrito>
             </div>
         </div>

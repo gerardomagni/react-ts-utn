@@ -66,3 +66,15 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.btMercadoPago{
+    background-color: #535bf2;
+}
+
+.divVisible{
+    visibility:visible;
+}
+
+.divInvisible{
+    visibility:hidden;
+}
