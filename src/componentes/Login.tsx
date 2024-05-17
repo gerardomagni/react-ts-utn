@@ -71,7 +71,7 @@ function Login() {
                 </div>
                 <div className="col">
                     <button onClick={login} className="btn btn-success" type="button">
-                        Guardar
+                        Ingresar
                     </button>
                 </div>
                 <div>

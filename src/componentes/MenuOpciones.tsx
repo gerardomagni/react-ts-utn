@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import Usuario from "../entidades/Usuario";
+import { Roles } from "../entidades/Roles";
 
 function MenuOpciones() {   
 
@@ -44,7 +45,7 @@ function MenuOpciones() {
                     </li>
                     <li>
                         <a className="nav-link">
-                            Usuario: {usuarioLogueado?.usuario}
+                            Usuario: {usuarioLogueado?.usuario} - {usuarioLogueado?.rol == Roles.ADMIN ? "Admin" : "Común"}
                         </a>
                     </li>
                     <li className="nav-item">
