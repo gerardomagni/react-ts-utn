@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import MenuOpciones from './componentes/MenuOpciones'
+import LoaderPage from './componentes/LoaderPage'
 
 function App() {
   const [count, setCount] = useState(0)
