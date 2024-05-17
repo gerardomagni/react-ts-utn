@@ -3,7 +3,6 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import MenuOpciones from './componentes/MenuOpciones'
-import LoaderPage from './componentes/LoaderPage'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -20,6 +19,9 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
+      <a href="/loading" target="_blank">
+          <h1>LOADING</h1>
+      </a>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
