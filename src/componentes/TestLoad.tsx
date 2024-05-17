@@ -17,7 +17,7 @@ const Message = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  return showMessage ? <div>Ejemplo Load Page</div> : <Spinner />;
+  return showMessage ? <div><h1>Ejemplo Load Page</h1></div> : <Spinner />;
 };
 
 const TestLoad = () => {
