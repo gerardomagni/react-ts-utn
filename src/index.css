@@ -78,3 +78,7 @@ button:focus-visible {
 .divInvisible{
     visibility:hidden;
 }
+
+.separador{
+    width: 400px;
+}

@@ -8,7 +8,7 @@ import Ingrediente from '../entidades/Ingrediente';
 
 
 function Formulario() {   
-   const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const {idplato} = useParams();
     const [plato, setPlato] = useState<Plato>(new Plato());

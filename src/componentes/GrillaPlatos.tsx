@@ -1,16 +1,21 @@
 import { useState, useEffect } from 'react'
 import Plato from '../entidades/Plato';
-import ItemPlato from './ItemPlato';
 import { deletePlatoXId, getPlatosJSONFetch } from '../servicios/FuncionesApi';
 import MenuOpciones from './MenuOpciones';
+import Usuario from '../entidades/Usuario';
+import { Roles } from '../entidades/Roles';
 
 
 function GrillaPlatos() {   
+    
+    const [jsonUsuario, setJSONUsuario] = useState<any>(localStorage.getItem('usuario'));
+    const usuarioLogueado:Usuario = JSON.parse(jsonUsuario) as Usuario;
+
     const [platos, setPlatos] = useState<Plato[]>([]);
     
     const getPlatosResto =  async () => {
-      const datos:Plato[] = await getPlatosJSONFetch();
-      setPlatos(datos);
+       const datos:Plato[] = await getPlatosJSONFetch();
+        setPlatos(datos);
     }
 
     useEffect(() => {
@@ -45,9 +50,14 @@ function GrillaPlatos() {
                 <div className="col">
                 <b>Modificar</b>
                 </div>
-                <div className="col">
-                <b>Eliminar</b>
-                </div>
+                {
+                    (usuarioLogueado.rol == Roles.ADMIN)
+                      ? <div className="col">
+                        <b>Eliminar</b>
+                        </div>
+                      : 
+                      <div className="col"></div>
+                }
             </div>
           {platos.map((plato:Plato, index) => 
             <div className="row" key={index}>
@@ -66,9 +76,14 @@ function GrillaPlatos() {
                 <div className="col">
                 <a className="btn btn-info" style={{ marginBottom:10 }} href={`/formulario/` + plato.id}>Modificar</a>
                 </div>
-                <div className="col">
-                <a className="btn btn-danger" style={{ marginBottom:10 }} onClick={(e) => deletePlato(plato.id)}>Eliminar</a>
-                </div>
+                {
+                    (usuarioLogueado.rol == Roles.ADMIN)
+                      ? <div className="col">
+                            <a className="btn btn-danger" style={{ marginBottom:10 }} onClick={(e) => deletePlato(plato.id)}>Eliminar</a>
+                        </div>
+                      : 
+                      <div className="col"></div>
+                }
             </div>
                )}
           </div>
