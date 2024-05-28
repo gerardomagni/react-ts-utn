@@ -8,10 +8,16 @@ import MenuOpciones from './MenuOpciones';
 function DetallePlato() {
     const {idplato} = useParams();
     const [plato, setPlato] = useState<Plato>();
+    
     const getPlatoResto = async () => {
         const platoSelect:Plato = await getPlatoXIdFecth(Number(idplato));
         setPlato(platoSelect);
     }
+
+    const generarPDF = () => {
+      window.open("http://localhost:8080/api/downloadPdfPlato/" + idplato, "_blank");
+    }
+
     useEffect(() => {
         getPlatoResto();
     }, []);
@@ -38,6 +44,7 @@ function DetallePlato() {
 
             </p>
             <a href="#" className="btn btn-primary">Comprar</a>
+            <a className="btn btn-success" onClick={(e) => generarPDF()}>Generar PDF</a>
         </div>
         <div className="card-footer text-body-secondary">
             <a href="/menu">

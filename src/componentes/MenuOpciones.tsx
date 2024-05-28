@@ -49,6 +49,9 @@ function MenuOpciones() {
                         </a>
                     </li>
                     <li className="nav-item">
+                        <a className="nav-link" href="/googlecharts">Charts Google</a>
+                    </li>
+                    <li className="nav-item">
                         <button onClick={cerrarSesion} className="btn btn-success" type="button">
                             Cerrar Sesión
                         </button>

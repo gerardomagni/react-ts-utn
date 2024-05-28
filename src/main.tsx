@@ -10,6 +10,7 @@ import Login from './componentes/Login.tsx'
 import RolUsuario from './controlAcceso/RolUsuario.tsx'
 import { Roles } from './entidades/Roles.ts'
 import LoaderPage from './componentes/LoaderPage.tsx'
+import ChartsGoogle from './componentes/ChartsGoogle.tsx'
 
 //lazy -> técnica de carga diferida, el componente se carga cuando se necesita y NO desde el inicio
 //ayudar a reducir el tiempo de carga inicial de la aplicación y a mejorar la velocidad de navegación
@@ -26,6 +27,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Routes>
             //ruta publica
         <Route index element={<Componentes />} />
+        <Route path='/googlecharts' element={<ChartsGoogle />} />
             //ruta publica
         <Route path="/login" element={<Login />} />
             //ruta publica

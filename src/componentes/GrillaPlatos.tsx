@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import Plato from '../entidades/Plato';
-import { deletePlatoXId, getPlatosJSONFetch } from '../servicios/FuncionesApi';
+import { deletePlatoXId, generarReporteExcel, getPlatosJSONFetch } from '../servicios/FuncionesApi';
 import MenuOpciones from './MenuOpciones';
 import Usuario from '../entidades/Usuario';
 import { Roles } from '../entidades/Roles';
@@ -27,11 +27,16 @@ function GrillaPlatos() {
       window.location.reload();
     }
 
+    const generarExcel = () => {
+      window.open("http://localhost:8080/api/downloadExcelPlatos", "_blank");
+    }
+
 
     return (
         <>
         <MenuOpciones></MenuOpciones>
         <div className="container text-center">
+            <a className="btn btn-success" onClick={(e) => generarExcel()}>Generar Excel</a>
             <br/>
             <a className="btn btn-primary" href={`/formulario/0`}>Nuevo</a>
             <div className="row">

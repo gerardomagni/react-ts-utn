@@ -4,7 +4,7 @@ import Pedido from "../entidades/Pedido";
 import Plato from "../entidades/Plato";
 
 export async function getPlatosJSONFetch(){
-	const urlServer = 'http://localhost:8080/api/platos';
+	const urlServer = 'http://localhost:8080/api/platoshql';
 	const response = await fetch(urlServer, {
 		method: 'GET',
         headers: {
@@ -138,4 +138,45 @@ export async function createPreferenceMP(pedido?:Pedido){
 	});
     return await response.json() as PreferenceMP;   
 }   
+
+export async function getDatosChartLineFetch(){
+	const urlServer = 'http://localhost:8080/api/datachartline';
+	const response = await fetch(urlServer, {
+		method: 'GET',
+        headers: {
+			'Content-type': 'application/json',
+			'Access-Control-Allow-Origin':'*'
+		},
+        mode: 'cors'
+	});
+	console.log(response);
+	return await response.json();
+}
+
+export async function getDatosChartPieFetch(){
+    const urlServer = 'http://localhost:8080/api/datachartpie';
+	const response = await fetch(urlServer, {
+		method: 'GET',
+        headers: {
+			'Content-type': 'application/json',
+			'Access-Control-Allow-Origin':'*'
+		},
+        mode: 'cors'
+	});
+	console.log(response);
+	return await response.json();
+}
+
+export async function generarReporteExcel(){
+	console.log("http://localhost:8080/api/downloadExcelPlatos");
+	let urlServer = 'http://localhost:8080/api/downloadExcelPlatos';
+	await fetch(urlServer, {
+		method: 'GET',
+        headers: {
+			'Content-type': 'application/json',
+			'Access-Control-Allow-Origin':'*'
+		},
+        mode: 'cors'
+	});
+}
 
