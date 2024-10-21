@@ -4,6 +4,7 @@ import Plato from '../entidades/Plato';
 import { getPlatoXIdFecth } from '../servicios/FuncionesApi';
 import Ingrediente from '../entidades/Ingrediente';
 import MenuOpciones from './MenuOpciones';
+import ConfigApp from '../ConfigApp';
 
 function DetallePlato() {
     const {idplato} = useParams();
@@ -15,7 +16,7 @@ function DetallePlato() {
     }
 
     const generarPDF = () => {
-      window.open("http://localhost:8080/api/downloadPdfPlato/" + idplato, "_blank");
+      window.open("http://localhost:"+ConfigApp.PUERTO_TOMCAT+"/api/downloadPdfPlato/" + idplato, "_blank");
     }
 
     useEffect(() => {

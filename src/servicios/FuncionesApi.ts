@@ -2,9 +2,10 @@ import PreferenceMP from "../entidades/mercadopago/PreferenceMP";
 import Ingrediente from "../entidades/Ingrediente";
 import Pedido from "../entidades/Pedido";
 import Plato from "../entidades/Plato";
+import ConfigApp from "../ConfigApp";
 
 export async function getPlatosJSONFetch(){
-	const urlServer = 'http://localhost:8080/api/platoshql';
+	const urlServer = "http://localhost:"+ConfigApp.PUERTO_TOMCAT+"/api/platoshql";
 	const response = await fetch(urlServer, {
 		method: 'GET',
         headers: {
@@ -18,7 +19,7 @@ export async function getPlatosJSONFetch(){
 }
 
 export async function getPlatoXIdFecth(id:number){
-	const urlServer = 'http://localhost:8080/api/platoxid/'+id;
+	const urlServer = "http://localhost:"+ConfigApp.PUERTO_TOMCAT+"/api/platoxid/"+id;
     console.log(urlServer);
 	const response = await fetch(urlServer, {
 		method: 'GET',
@@ -34,7 +35,7 @@ export async function getPlatoXIdFecth(id:number){
 
 export async function deletePlatoXId(id:number){
 	
-	let urlServer = 'http://localhost:8080/api/eliminar/'+id;
+	let urlServer = "http://localhost:"+ConfigApp.PUERTO_TOMCAT+"/api/eliminar/"+id;
 	await fetch(urlServer, {
 		method: 'GET',
         headers: {
@@ -46,7 +47,7 @@ export async function deletePlatoXId(id:number){
 }
 
 export async function getPlatosXBusqueda(termino:String){
-	let urlServer = 'http://localhost:8080/api/buscar/'+termino;
+	let urlServer = "http://localhost:"+ConfigApp.PUERTO_TOMCAT+"/api/buscar/"+termino;
 	let response = await fetch(urlServer, {
 		method: 'GET',
         headers: {
@@ -60,7 +61,7 @@ export async function getPlatosXBusqueda(termino:String){
 }
 
 export async function getIngredienteXIdFetch(id:number){
-	let urlServer = 'http://localhost:8080/api/ingredientexid/'+id;
+	let urlServer = "http://localhost:"+ConfigApp.PUERTO_TOMCAT+"/api/ingredientexid/"+id;
 	let response = await fetch(urlServer, {
 		method: 'GET',
         headers: {
@@ -73,7 +74,7 @@ export async function getIngredienteXIdFetch(id:number){
 }
 
 export async function getIngredientesDataBaseJSON(){
-	let urlServer = 'http://localhost:8080/api/ingredientes';
+	let urlServer = "http://localhost:"+ConfigApp.PUERTO_TOMCAT+"/api/ingredientes";
 	let response = await fetch(urlServer, {
 		method: 'GET',
 		headers: {
@@ -87,10 +88,10 @@ export async function getIngredientesDataBaseJSON(){
 }
 
 export async function savePlato(plato?: Plato) {
-	let urlServer = 'http://localhost:8080/api/insert';
+	let urlServer = "http://localhost:"+ConfigApp.PUERTO_TOMCAT+"/api/insert";
 	let method:string = "POST";
 	if(plato && plato.id > 0){
-		urlServer = 'http://localhost:8080/api/update';
+		urlServer = "http://localhost:"+ConfigApp.PUERTO_TOMCAT+"/api/update";
 		method = "PUT";
 	}
 	await fetch(urlServer, {
@@ -103,7 +104,7 @@ export async function savePlato(plato?: Plato) {
 }
 
 export async function getIngredienteXCodigo(codigo:string){
-	let urlServer = 'http://localhost:8080/api/ingredientexcodigo/'+codigo;
+	let urlServer = "http://localhost:"+ConfigApp.PUERTO_TOMCAT+"/api/ingredientexcodigo/"+codigo;
 	let response = await fetch(urlServer, {
 		method: 'GET',
         headers: {
@@ -127,7 +128,7 @@ export function getPlatosJSON(){
 
 
 export async function createPreferenceMP(pedido?:Pedido){
-    let urlServer = 'http://localhost:8080/api/create_preference_mp';
+    let urlServer = "http://localhost:"+ConfigApp.PUERTO_TOMCAT+"/api/create_preference_mp";
 	let method:string = "POST";
     const response = await fetch(urlServer, {
 	  "method": method,
@@ -140,7 +141,7 @@ export async function createPreferenceMP(pedido?:Pedido){
 }   
 
 export async function getDatosChartLineFetch(){
-	const urlServer = 'http://localhost:8080/api/datachartline';
+	const urlServer = "http://localhost:"+ConfigApp.PUERTO_TOMCAT+"/api/datachartline";
 	const response = await fetch(urlServer, {
 		method: 'GET',
         headers: {
@@ -154,7 +155,7 @@ export async function getDatosChartLineFetch(){
 }
 
 export async function getDatosChartPieFetch(){
-    const urlServer = 'http://localhost:8080/api/datachartpie';
+    const urlServer = "http://localhost:"+ConfigApp.PUERTO_TOMCAT+"/api/datachartpie";
 	const response = await fetch(urlServer, {
 		method: 'GET',
         headers: {
@@ -168,8 +169,8 @@ export async function getDatosChartPieFetch(){
 }
 
 export async function generarReporteExcel(){
-	console.log("http://localhost:8080/api/downloadExcelPlatos");
-	let urlServer = 'http://localhost:8080/api/downloadExcelPlatos';
+	console.log("http://localhost:"+ConfigApp.PUERTO_TOMCAT+"/api/downloadExcelPlatos");
+	let urlServer = "http://localhost:"+ConfigApp.PUERTO_TOMCAT+"/api/downloadExcelPlatos";
 	await fetch(urlServer, {
 		method: 'GET',
         headers: {

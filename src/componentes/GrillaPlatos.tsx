@@ -4,6 +4,7 @@ import { deletePlatoXId, generarReporteExcel, getPlatosJSONFetch } from '../serv
 import MenuOpciones from './MenuOpciones';
 import Usuario from '../entidades/Usuario';
 import { Roles } from '../entidades/Roles';
+import ConfigApp from '../ConfigApp';
 
 
 function GrillaPlatos() {   
@@ -28,7 +29,7 @@ function GrillaPlatos() {
     }
 
     const generarExcel = () => {
-      window.open("http://localhost:8080/api/downloadExcelPlatos", "_blank");
+      window.open("http://localhost:"+ConfigApp.PUERTO_TOMCAT+"/api/downloadExcelPlatos", "_blank");
     }
 
 
