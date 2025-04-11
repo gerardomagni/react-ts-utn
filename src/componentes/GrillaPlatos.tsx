@@ -15,7 +15,9 @@ function GrillaPlatos() {
     const [platos, setPlatos] = useState<Plato[]>([]);
     
     const getPlatosResto =  async () => {
-       const datos:Plato[] = await getPlatosJSONFetch();
+        const datos:Plato[] = await getPlatosJSONFetch();
+        console.log("LOS PLATOS DEL JSON SON: ");
+        console.log(datos);
         setPlatos(datos);
     }
 

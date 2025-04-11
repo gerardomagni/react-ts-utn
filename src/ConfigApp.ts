@@ -1,5 +1,5 @@
 export default class ConfigApp{
 
-    public static PUERTO_TOMCAT:string = "8081";
+    public static PUERTO_TOMCAT:string = "8080";
 
 }

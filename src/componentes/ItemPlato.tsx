@@ -49,6 +49,7 @@ function ItemPlato(args : PlatoParams) {
                 <button type="button" className="btn btn-warning">Detalle</button>
             </a>
             <hr></hr>
+            {
             <p>
             <a className='iconoMasMenos' onClick={() => removeItemCarrito(args.platoObject)}>
             -
@@ -70,6 +71,7 @@ function ItemPlato(args : PlatoParams) {
              +
             </a> 
             </p>
+            }
         </div>
         </div>
     </div>

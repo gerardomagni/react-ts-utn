@@ -82,3 +82,7 @@ button:focus-visible {
 .separador{
     width: 400px;
 }
+
+.colorRojo{
+    color: red;
+}

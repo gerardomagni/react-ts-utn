@@ -26,12 +26,16 @@ function CheckoutMP ({montoCarrito = 0}) {
     
     //redirectMode es optativo y puede ser self, blank o modal
     return (
-        <div>
-            <button onClick={getPreferenceMP} className='btMercadoPago'>COMPRAR con <br></br> Mercado Pago</button>
-            <div className={idPreference ? 'divVisible' : 'divInvisible'}>
-            <Wallet initialization={{ preferenceId: idPreference, redirectMode:"blank" }} customization={{  texts:{ valueProp: 'smart_option'}}} />
+        <>
+        {
+            <div>
+                <button onClick={getPreferenceMP} className='btMercadoPago'>COMPRAR con <br></br> Mercado Pago</button>
+                <div className={idPreference ? 'divVisible' : 'divInvisible'}>
+                <Wallet initialization={{ preferenceId: idPreference, redirectMode:"blank" }} customization={{  texts:{ valueProp: 'smart_option'}}} />
+                </div>
             </div>
-        </div>
+        }
+        </>
     );
 
 }

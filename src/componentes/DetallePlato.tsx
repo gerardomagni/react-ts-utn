@@ -45,7 +45,7 @@ function DetallePlato() {
 
             </p>
             <a href="#" className="btn btn-primary">Comprar</a>
-            <a className="btn btn-success" onClick={(e) => generarPDF()}>Generar PDF</a>
+            <a className="btn btn-success" onClick={() => generarPDF()}>Generar PDF</a>
         </div>
         <div className="card-footer text-body-secondary">
             <a href="/menu">

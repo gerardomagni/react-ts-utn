@@ -33,6 +33,7 @@ export function Carrito () {
   
   return (
     <>
+        {
       <aside className='cart'>
         <ul>
           {cart.map((plato:Plato, index) => 
@@ -60,10 +61,8 @@ export function Carrito () {
         </button>
         <br></br>
         <CheckoutMP montoCarrito={totalPedido} ></CheckoutMP>
-        
-        
-        
       </aside>
+      }
     </>
   )
 }

@@ -34,7 +34,7 @@ function Menu() {
                 </div>    
             </div>
             <div className="col-3">
-                <b>Carrito Compras</b>
+                <b className='colorRojo'>Carrito Compras</b>
                 <hr></hr>
                 <Carrito></Carrito>
             </div>
